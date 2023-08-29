@@ -1,0 +1,75 @@
+1.Display all employees whose salary is divisible by 3
+	 select * from emp where mod(sal,3) = 0;
+2.find total no of analyst in table
+	select count(*) from emp
+	where job = 'ANALYST';
+3.insert values
+	insert into emp(EMPNO, ENAME, DEPTNO, JOB)
+  	VALUES(1111, 'Raj', 10, 'ANALYST');
+	insert into emp(EMPNO, ENAME, DEPTNO, JOB)
+  	VALUES(2222, 'Yash', 20, 'ANALYST');
+	insert into emp(EMPNO, ENAME, DEPTNO, JOB)
+  	VALUES(3333, 'Geeta', 30, 'ANALYST');
+
+4.find no. of analyst in each dept.
+	select count(*)
+	from emp
+	where job = 'analyst'
+	groupby deptno;
+
+5.DISPLAY INFO OF EMPLOYEE WHO EARNS MAX SALARY IN ORGANIZATION
+	 SELECT * FROM EMP
+  	 WHERE SAL = (SELECT MAX(SAL) FROM EMP);
+
+6.Display all emp whose sal is between min sal and 2000
+	select * from emp
+        where sal between (select min(sal) from emp) and 2000;
+
+7.display all emp whose sal is greater than avg sal sal of employees 
+	select * from emp
+	where sal > (select avg(sal) from emp)
+
+8.display all emp whose sal matches the lowest sal of any of the dept
+	select * from emp
+	where  > ANY (select min(sal) from emp
+	group by deptno);
+
+
+	select * from emp
+        where sal > ALL (select min(sal) from emp
+        group by deptno);
+
+9.Date Functions:
+   A.Sysdate
+   B.add_months
+	select add_months (hiredate,5), hiredate
+        from emp;
+
+	select add_months (hiredate,-13), hiredate
+        from emp;
+
+	select add_months(date'2023-08-29',2)
+        from dual;
+
+    C.months_between(d1,d2)
+
+    D.extract
+	select extract (month from hiredate), hiredate
+        from emp;
+
+	select extract (year from hiredate), hiredate
+	from emp;
+
+10.select all the employees hired in the year 1981
+	select * from emp
+	where extract (year from hiredate) = 1981;
+
+11.count of emp hired in 1981
+	 select count(*) from emp
+         where extract (year from hiredate) = 1981;
+
+12.select year and no of employees hired 
+	select extract(year from hiredate), count(*) from emp
+        group by extract(year from hiredate);
+
+	
