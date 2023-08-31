@@ -53,7 +53,10 @@
 
     C.months_between(d1,d2)
 
-    D.extract
+    D.extract:
+		The EXTRACT() function is used to extract a part from a given date or an interval 		value, such as year, month, day, hour, etc. The syntax is:
+		EXTRACT(part FROM date)
+	
 	select extract (month from hiredate), hiredate
         from emp;
 
@@ -72,4 +75,17 @@
 	select extract(year from hiredate), count(*) from emp
         group by extract(year from hiredate);
 
+13. select all the employees whose salary is greater than all the analysts 
+	select * from emp 
+	where sal > ALL(select SAL from emp 
+			where job ='ANALYST')
+
+14. select salary of all the analysts
+	select * from emp
+        where job = 'ANALYST';
 	
+15.extract year with max hiring ----- **IMP**
+	select extract(year from hiredate), count(*)
+  	from emp
+  	group by extract(year from hiredate)
+  	having count(*) = (select max (count(*)) from emp group by extract (year from hiredate));
