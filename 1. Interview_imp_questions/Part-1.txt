@@ -1,0 +1,28 @@
+1.)	Explain order of execution of SQL.
+Order of execution of SQL:
+
+1.	FROM: This clause selects the table(s) or view(s) from which to retrieve data.
+2.	WHERE: This clause filters the rows based on a specified condition.
+3.	GROUP BY: This clause groups the rows that have the same values into summary rows.
+4.	HAVING: This clause filters groups based on a specified condition.
+5.	SELECT: This clause selects the columns to include in the result set.
+6.	DISTINCT: This keyword removes duplicates from the result set.
+7.	ORDER BY: This clause sorts the result set by one or more columns.
+8.	LIMIT / OFFSET: These clauses allow you to constrain the number of rows returned and skip a specified number of rows.
+2.)	What is difference between where and having?
+ 	WHERE: Used to filter rows based on some condition.
+ 	HAVING: Used to filter groups after grouping. It is used along with aggregate functions.
+3.)	What is the use of “group by”?
+Used to group rows that have something common in particular, like we can group employees by department.
+4.)	Explain all types of joins in SQL?
+We have to work on multiple tables in RDBMS, so when we have to join two or more tables then we use JOINS. 
+There are 5 types of joins:
+ 	INNER JOIN: Returns records that have matching values in both tables.
+ 	LEFT JOIN: Returns all records from the left table, and the matched records from the right table.
+ 	RIGHT JOIN: Returns all records from the right table, and the matched records from the left table.
+ 	FULL JOIN: Returns records when there is a match in either left or right table.
+ 	SELF JOIN: When we have to join multiple columns of same table.
+5.)	What are triggers in SQL?
+Special type of stored procedure that is automatically executed or fired when a specific event occurs in a table (e.g., INSERT, UPDATE, DELETE).
+6.)	What is stored procedure in SQL
+A prepared SQL code that you can save, so the code can be reused over and over again.
